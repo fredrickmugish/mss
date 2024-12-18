@@ -17,7 +17,7 @@ urlpatterns = [
     path('news/', views.news_list, name='news_list'),
     path('news/<int:news_id>/', views.news_detail, name='news_detail'),  # Added detail view
     path('contact/', views.contact, name='contact'),
-    path('upload_results/', views.upload_results, name='upload_results'),  # Correct endpoint
+    path('academic_results/', views.academic_results, name='academic_results'), 
     path('display_results/', views.display_results, name='display_results'),
   
     

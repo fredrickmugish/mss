@@ -72,7 +72,7 @@ def contact(request):
             messages.error(request, "An error occurred while sending your message. Please try again.")
     return render(request, 'contact.html')
 
-def upload_results(request):
+def academic_results(request):
     if request.method == "POST" and 'file' in request.FILES:
         file = request.FILES['file']
         decoded_file = file.read().decode('utf-8').splitlines()
@@ -111,13 +111,15 @@ def upload_results(request):
             )
 
         messages.success(request, "Results uploaded successfully.")
-        return render(request, "necta_results.html")
+        return render(request, "academic_results.html")
 
+    # Handle GET requests
+    return render(request, "academic_results.html")
 
 def display_results(request):
     students = StudentResult.objects.all()
     overview = PerformanceOverview.objects.all()
-    return render(request, "necta_results.html", {
+    return render(request, "academic_results.html", {
         "students": students,
         "overview": overview,
         "no_results": not students.exists(),
