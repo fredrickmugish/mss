@@ -1,0 +1,591 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+ 
+    <!-- Hero Section with Carousel and Image Titles -->
+<section id="hero" class="hero section">
+
+  <div class="container">
+    <div class="row gy-4">
+
+       <!-- Marquee Section for Mnyanjani Secondary School Welcome Note -->
+<div style=" color: white; padding: 15px; text-align: center;">
+  <marquee behavior="scroll" direction="left" scrollamount="6" style="font-size: 1em; font-weight: bold;" onmouseover="this.stop();" onmouseout="this.start();">
+      Welcome to Mnyanjani Secondary School! Discover our vibrant community, campus life, and achievements. We are committed to excellence in education and holistic growth.
+  </marquee>
+</div>
+
+        
+        <!-- Text Content -->
+<div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+    <h1>Welcome to Mnyanjani Secondary School</h1>
+    <p>Empowering the future generation with quality education and a conducive learning environment.</p>
+    <div class="d-flex">
+      <a href="{% url 'word_from_headmaster' %}" class="btn-get-started">Get Started</a>
+    </div>
+  </div>
+  
+  <!-- Carousel Section --> 
+  <div class="col-lg-6 order-1 order-lg-2 hero-img">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- Carousel Inner with Slides and Titles -->
+      <div class="carousel-inner">
+        <!-- Slide 1 with Title -->
+        <div class="carousel-item active">
+          <img src="{% static 'img/Mahafali-Ya-kidato-cha-4-chalinze-sec-2024-1-2048x1365.jpg' %}" class="d-block w-100" alt="Graduation Ceremony">
+          <div class="carousel-caption d-block">
+            <h5>Graduation Ceremony 2024</h5>
+            <p>Celebrating the achievements of our graduating class.</p>
+          </div>
+        </div>
+        <!-- Slide 2 with Title -->
+        <div class="carousel-item">
+          <img src="{% static 'img/walm.jpg' %}" class="d-block w-100" alt="School Campus">
+          <div class="carousel-caption d-block">
+            <h5>School Board Meeting</h5>
+            <p>school board meeting where we will discuss key initiatives to improve our school.</p>
+          </div>
+        </div>
+        <!-- Slide 3 with Title -->
+        <div class="carousel-item">
+          <img src="{% static 'img/n.jpg' %}" class="d-block w-100" alt="Science Laboratory">
+          <div class="carousel-caption d-block">
+            <h5>Our school overview</h5>
+            <p>Equipped with modern Administrative blocks for teachers and all staffs.</p>
+          </div>
+        </div>
+        <!-- Slide 4 with Title -->
+        <div class="carousel-item">
+          <img src="{% static 'img/pic6 - Copy.jpg' %}" class="d-block w-100" alt="Form Four Class During Break Time">
+          <div class="carousel-caption d-block">
+            <h5>Student During Break time</h5>
+            <p>Students enjoying a relaxing break time, and refreshing for their next lesson.</p>
+          </div>
+        </div>
+  
+        <!-- Slide 5 with Title -->
+        <div class="carousel-item">
+          <img src="{% static 'img/pic4.jpg' %}" class="d-block w-100" alt="FEMA Club Meeting">
+          <div class="carousel-caption d-block">
+            <h5>FEMA Club Meeting</h5>
+            <p>Students gathered for a FEMA Club session, leadership, and community involvement.</p>
+          </div>
+        </div>
+  
+        <!-- Carousel Slide Describing School Classes -->
+        <div class="carousel-item">
+          <img src="{% static 'img/pic5 - Copy.jpg' %}" class="d-block w-100" alt="Classroom Environment at Mnyanjani Secondary School">
+          <div class="carousel-caption d-block">
+            <h5>Our Classrooms</h5>
+            <p>Explore the well-equipped classrooms where students actively engage in lesson.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- /Hero Section -->
+
+  
+   <!-- Welcome Note from the Headmaster -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2 style="padding-top: 40px;">Welcome Note</h2>
+  </div><!-- End Section Title -->
+  
+  <div class="container">
+    <div class="row gy-4">
+      
+    <!-- Headmaster's Message -->
+<div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+  {% if headmaster %}
+    <div class="headmaster-frame">
+      <img src="{{ headmaster.image.url }}" alt="Headmaster" class="img-fluid headmaster-img">
+      <h4 class="mt-3 text-center headmaster-name">{{ headmaster.name }}</h4>
+      <p class="text-center headmaster-title"><i>{{ headmaster.title }}</i></p>
+    </div>
+  {% else %}
+    <p class="text-center">Headmaster's information is currently unavailable.</p>
+  {% endif %}
+</div>
+
+
+  
+  <!-- Headmaster's Welcome Message and School Introduction -->
+  <div class="col-lg-8 content" data-aos="fade-up" data-aos-delay="200">
+    <h3 style="font-size: medium;">Welcome to Mnyanjani Secondary School</h3>
+    <p>
+      It is my honor to welcome you to Mnyanjani Secondary School, a vibrant learning community where we strive for academic excellence and holistic development. Our mission is to guide students on their educational journey in an environment that promotes both intellectual and moral growth. I am proud to lead a school where every student is valued and supported.
+    </p>
+    <a href="{% url 'school_background' %}" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+  </div>
+  
+  
+     <!-- About Section -->
+  <section id="about" class="about section">
+  
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2 class="">what you can know from our school!</h2>
+    </div><!-- End Section Title -->
+  
+    <div class="container">
+  
+      <div class="row gy-4">
+  
+        <!-- School Description -->
+        <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+          <p>
+            Mnyanjani Secondary School is a co-educational institution offering both science and arts subjects. We are dedicated to providing quality education in a conducive learning environment, supported by state-of-the-art facilities.
+          </p>
+          <ul>
+            <li><i class="bi bi-check2-circle"></i> <span>Modern science laboratory for practical learning.</span></li>
+            <li><i class="bi bi-check2-circle"></i> <span>Wide range of academic subjects including sciences and arts.</span></li>
+            <li><i class="bi bi-check2-circle"></i> <span>Experienced and dedicated teaching staff.</span></li>
+          </ul>
+        </div>
+  
+       <!-- Additional Information & Link -->
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+    <p>Mnyanjani Secondary School is located 12.1 kilometers from Tanga city Bus Terminal at Kange, in the Tanga Region. Our school has an enrollment of 750 students, 25 teachers, and 3 non-teaching staff, all working together to foster a community of academic excellence and holistic development.</p>
+    <a href="{% url 'school_facilities' %}" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+  </div>
+  
+  
+  
+     <!-- Why Us Section -->
+  <section id="why-us" class="section why-us" data-builder="section">
+  
+    <div class="container-fluid">
+  
+      <div class="row gy-4">
+  
+        <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
+  
+          <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
+            <h3 class=""><span class="">Why Choose </span><strong>Mnyanjani Secondary School?</strong></h3>
+            <p class="">
+              At Mnyanjani Secondary School, we provide a holistic education that fosters academic excellence and personal growth. Our commitment to quality education and a supportive environment makes us the ideal choice for students seeking to excel.
+            </p>
+          </div>
+  
+          <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
+  
+            <div class="faq-item faq-active">
+              <h3><span>01</span> What programs do we offer?</h3>
+              <div class="faq-content">
+                <p>We offer a diverse range of programs, including science and arts subjects, catering to the varied interests and talents of our students. Our curriculum is designed to prepare students for national examinations and future academic pursuits.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+  
+            <div class="faq-item">
+              <h3><span>02</span> How does Mnyanjani Secondary School support students?</h3>
+              <div class="faq-content">
+                <p>Our dedicated teaching staff provides personalized support to each student, ensuring they receive the guidance needed to succeed academically and socially. We also offer various extracurricular activities to promote overall development.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+  
+            <div class="faq-item">
+              <h3><span>03</span> What facilities are available at the school?</h3>
+              <div class="faq-content">
+                <p>Mnyanjani Secondary School boasts modern facilities, including a well-equipped science laboratory, a spacious library, and sports facilities, providing students with an enriching environment for learning and growth.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+  
+          </div>
+  
+        </div>
+  
+        <div class="col-lg-5 order-1 order-lg-2 why-us-img">
+            <img src="{% static 'img/Mahafali-Ya-kidato-cha-4-chalinze-sec-2024-1-2048x1365.jpg' %}" class="img-fluid" alt="Why Us" data-aos="zoom-in" data-aos-delay="100">
+          </div>
+          
+  
+    </div>
+  
+  </section><!-- /Why Us Section -->
+  <!-- Skills Section --> 
+  <section id="skills" class="skills section">
+  
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+  
+      <div class="row">
+  
+        <div class="col-lg-6 d-flex align-items-center">
+            <img src="{% static 'img/img.jpeg' %}" class="img-fluid" alt="Skills Development at Mnyanjani Secondary School">
+          </div>
+          
+  
+        <div class="col-lg-6 pt-4 pt-lg-0 content">
+  
+          <h3>Fostering Essential Skills for Success</h3>
+          <p class="fst-italic">
+            At Mnyanjani Secondary School, we prioritize equipping our students with essential skills that prepare them for future challenges and opportunities. Our commitment to high-quality education ensures that students not only excel academically but also develop skills necessary for personal and professional success.
+          </p>
+  
+          <div class="row mt-4">
+  
+            <div class="col-md-6 mb-4">
+              <div class="card skill-card">
+                <div class="card-body">
+                  <h5 class="card-title">Critical Thinking</h5>
+                  <p class="card-text">Our students are trained to analyze situations, make informed decisions, and solve complex problems creatively.</p>
+                </div>
+              </div>
+            </div><!-- End Skill Card -->
+  
+            <div class="col-md-6 mb-4">
+              <div class="card skill-card">
+                <div class="card-body">
+                  <h5 class="card-title">Communication</h5>
+                  <p class="card-text">We emphasize the importance of effective communication, enabling students to express their ideas clearly and confidently.</p>
+                </div>
+              </div>
+            </div><!-- End Skill Card -->
+  
+            <div class="col-md-6 mb-4">
+              <div class="card skill-card">
+                <div class="card-body">
+                  <h5 class="card-title">Teamwork</h5>
+                  <p class="card-text">Students engage in collaborative projects that foster teamwork and leadership skills essential for success in the workplace.</p>
+                </div>
+              </div>
+            </div><!-- End Skill Card -->
+  
+            <div class="col-md-6 mb-4">
+              <div class="card skill-card">
+                <div class="card-body">
+                  <h5 class="card-title">Problem Solving</h5>
+                  <p class="card-text">We teach students to approach challenges with a problem-solving mindset, equipping them with the tools to overcome obstacles.</p>
+                </div>
+              </div>
+            </div><!-- End Skill Card -->
+  
+          </div>
+  
+        </div>
+      </div>
+  
+    </div>
+  
+  </section><!-- /Skills Section -->
+  
+  
+  
+      <!-- Services Section -->
+  <section id="services" class="services section">
+  
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>What Our School Provide!</h2>
+      <p>Empowering students through a range of academic and extracurricular programs.</p>
+    </div><!-- End Section Title -->
+  
+    <div class="container">
+  
+      <div class="row gy-4">
+  
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-book icon"></i></div>
+            <h4>Quality Education</h4>
+            <p>Providing a comprehensive curriculum tailored to foster academic excellence.</p>
+          </div>
+        </div><!-- End Service Item -->
+  
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-person-fill icon"></i></div>
+            <h4>Guidance and Counseling</h4>
+            <p>Offering personalized support to help students navigate their academic journeys.</p>
+          </div>
+        </div><!-- End Service Item -->
+  
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-clipboard-check icon"></i></div>
+            <h4>Extracurricular Activities</h4>
+            <p>Encouraging participation in sports, arts, and clubs to promote holistic development.</p>
+          </div>
+        </div><!-- End Service Item -->
+  
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-item position-relative">
+            <div class="icon"><i class="bi bi-calendar-event icon"></i></div>
+            <h4>Events and Competitions</h4>
+            <p>Organizing academic and cultural events to showcase student talents and achievements.</p>
+          </div>
+        </div><!-- End Service Item -->
+  
+      </div>
+  
+    </div>
+  
+  </section><!-- /Services Section -->
+  
+    <!-- Call To Action Section -->
+<section id="call-to-action" class="call-to-action section">
+
+    <img src="{% static 'img/Mahafali-Ya-kidato-cha-4-chalinze-sec-2024-1-2048x1365.jpg' %}" alt="">
+  
+    <div class="container">
+  
+      <div class="row" data-aos="zoom-in" data-aos-delay="100">
+        <div class="col-xl-9 text-center text-xl-start">
+          <h3>Join Mnyanjani Secondary School Today!</h3>
+          <p>Be part of a vibrant community committed to excellence in education and personal growth. Enroll now and take the first step towards a brighter future!</p>
+        </div>
+        <div class="col-xl-3 cta-btn-container text-center">
+          <a class="cta-btn align-middle" href="{% static 'documents/joining_instructions.pdf' %}" download>Joining Instruction</a>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  
+  
+  </section><!-- /Call To Action Section -->
+  
+     <!-- News and Announcements Section --> 
+  <section id="news" class="news section">
+  
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>School News and Announcements</h2>
+      <p>Stay updated with the latest news and announcements from Mnyanjani Secondary School.</p>
+    </div><!-- End Section Title -->
+  
+    <div class="container">
+  
+      <section id="news-and-announcements" class="news-and-announcements section">
+  
+        <div class="container">
+          <div class="row gy-4">
+        
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="news-card">
+                <img src="{% static 'img/n.jpg' %}" class="img-fluid" alt="Announcement Image 1">
+                <div class="news-info">
+                  <h4>Annual Science Fair Scheduled for Next Month</h4>
+                  <p class="date">October 30, 2024</p>
+                  <p>Join us for our Annual Science Fair, where students will showcase their innovative projects. Don't miss it!</p>
+                  {% comment %} <a href="{% url 'news' %}" class="read-more">Read More</a> {% endcomment %}
+                </div>
+              </div>
+            </div><!-- End News Card -->
+        
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+              <div class="news-card">
+                <img src="{% static 'img/Mahafali-Ya-kidato-cha-4-chalinze-sec-2024-1-2048x1365.jpg' %}" class="img-fluid" alt="Announcement Image 2">
+                <div class="news-info">
+                  <h4>Parent-Teacher Meeting on November 5</h4>
+                  <p class="date">October 25, 2024</p>
+                  <p>We invite all parents to attend our Parent-Teacher meeting to discuss student progress and upcoming events.</p>
+                  {% comment %} <a href="{% url 'news' %}" class="read-more">Read More</a> {% endcomment %}
+                </div>
+              </div>
+            </div><!-- End News Card -->
+        
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+              <div class="news-card">
+                <img src="{% static 'img/pic2.jpg' %}" class="img-fluid" alt="Announcement Image 3">
+                <div class="news-info">
+                  <h4>School Sports Day on November 12</h4>
+                  <p class="date">October 20, 2024</p>
+                  <p>Get ready for a day of fun and competition! All students are encouraged to participate in our Sports Day.</p>
+                  {% comment %} <a href="{% url 'news' %}" class="read-more">Read More</a> {% endcomment %}
+                </div>
+              </div>
+            </div><!-- End News Card -->
+        
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+              <div class="news-card">
+                <img src="{% static 'img/pic7.jpg' %}" class="img-fluid" alt="Announcement Image 4">
+                <div class="news-info">
+                  <h4>Scholarship Opportunities for Top Students</h4>
+                  <p class="date">October 18, 2024</p>
+                  <p>Exciting scholarship opportunities are available for outstanding students. Applications are open now!</p>
+                  {% comment %} <a href="{% url 'news' %}" class="read-more">Read More</a> {% endcomment %}
+                </div>
+              </div>
+            </div><!-- End News Card -->
+        
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="500">
+              <div class="news-card">
+                <img src="{% static 'img/pic6 - Copy.jpg' %}" class="img-fluid" alt="Announcement Image 5">
+                <div class="news-info">
+                  <h4>School Holiday Notice</h4>
+                  <p class="date">October 15, 2024</p>
+                  <p>Please note that the school will be closed for the holiday from November 20 to November 27. Enjoy the break!</p>
+                  {% comment %} <a href="{% url 'news' %}" class="read-more">Read More</a> {% endcomment %}
+                </div>
+              </div>
+            </div><!-- End News Card -->
+        
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="600">
+              <div class="news-card">
+                <img src="{% static 'img/Mahafali-Ya-kidato-cha-4-chalinze-sec-2024-1-2048x1365.jpg' %}" class="img-fluid" alt="Announcement Image 6">
+                <div class="news-info">
+                  <h4>Volunteer Opportunities for Community Service</h4>
+                  <p class="date">October 10, 2024</p>
+                  <p>Students interested in community service can sign up for volunteer opportunities available this semester.</p>
+                  {% comment %} <a href="{% url 'news' %}" class="read-more">Read More</a> {% endcomment %}
+                </div>
+              </div>
+            </div><!-- End News Card -->
+        
+          </div>
+        </div>
+        
+      </section><!-- /News and Announcements Section -->
+      
+  
+  
+    <!-- School Results and Attachments Section -->
+  <section id="school-results" class="results section">
+  
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>School Results & Important Attachments</h2>
+      <p>Stay updated with the latest academic results and important documents at Mnyanjani Secondary School. Download joining instructions, timetables, and other essential resources.</p>
+    </div><!-- End Section Title -->
+  
+    <div class="container">
+  
+      <div class="row gy-4">
+  
+        <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+          <div class="result-item">
+            <h3>Exam Results</h3>
+            <img src="{% static 'img/Newnew1.gif' %}" alt="New" class="new-update">
+            <p>Check the latest exam results for all classes. Click below to view or download.</p>
+            <a href="{% url 'results' %}" class="download-btn">View Results</a>
+          </div>
+        </div><!-- End Result Item -->
+      
+        <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+          <div class="result-item">
+            <h3>Joining Instructions</h3>
+            <img src="{% static 'img/Newnew1.gif' %}" alt="New" class="new-update">
+            <p>Download the latest joining instructions for new students joining Mnyanjani Secondary School.</p>
+            <a href="/" class="download-btn">Download Joining Instructions</a>
+          </div>
+        </div><!-- End Result Item -->
+      
+        <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300"> 
+          <div class="result-item">
+            <h3>School Timetable</h3>
+            <p>Access the school timetable to stay updated on class schedules and exam dates.</p>
+            <a href="{% static 'documents/NOT_PULISHEED.pdf' %}" class="download-btn" download>Download Timetable</a>
+          </div>
+        </div><!-- End Result Item -->
+      
+        <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="400">
+          <div class="result-item">
+            <h3>Academic Calendar</h3>
+            <p>Stay informed about the school’s academic year calendar, including holidays and exam periods.</p>
+            <a href="{% static 'assets/documents/NOT_PULISHEED.pdf' %}" class="download-btn" download>Download Calendar</a>
+          </div>
+        </div><!-- End Result Item -->
+      
+        <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="500">
+          <div class="result-item">
+            <h3>Important Announcements</h3>
+            <img src="{% static 'assets/img/Newnew1.gif' %}" alt="New" class="new-update">
+            <p>Get the latest announcements on events, school meetings, and more. Stay informed!</p>
+            {% comment %} <a href="{% url 'news' %}" class="download-btn">View Announcements</a> {% endcomment %}
+          </div>
+        </div><!-- End Result Item -->
+      
+        <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="600">
+          <div class="result-item">
+            <h3>Other Attachments</h3>
+            <p>Download additional resources and attachments related to school activities and programs.</p>
+            <a href="/" class="download-btn">View All Attachments</a>
+          </div>
+        </div><!-- End Result Item -->
+      
+      </div><!-- End Result Items Row -->
+      
+      </div>
+  
+    </div>
+  
+  </section><!-- /School Results and Attachments Section -->
+  
+  
+     <!-- Faq 2 Section -->
+  <section id="faq-2" class="faq-2 section">
+  
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Frequently Asked Questions</h2>
+      <p>Find answers to common questions about Mnyanjani Secondary School, including admissions, academic programs, school facilities, and more.</p>
+    </div><!-- End Section Title -->
+  
+    <div class="container">
+  
+      <div class="row justify-content-center">
+  
+        <div class="col-lg-10">
+  
+          <div class="faq-container">
+  
+            <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
+              <i class="faq-icon bi bi-question-circle"></i>
+              <h3>How can I apply for admission at Mnyanjani Secondary School?</h3>
+              <div class="faq-content">
+                <p>To apply for admission, please visit our Admissions Office in our school or download the joining instructions form from our website. Completed forms should be submitted with all necessary documents by the specified deadline.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+  
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+              <i class="faq-icon bi bi-question-circle"></i>
+              <h3>What subjects are offered at the school?</h3>
+              <div class="faq-content">
+                <p>Mnyanjani Secondary School offers a variety of subjects in both Science and Arts streams, including Mathematics, Physics, Chemistry, Biology, History, Geography, English, and Kiswahili.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+  
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+              <i class="faq-icon bi bi-question-circle"></i>
+              <h3>Does the school provide boarding facilities?</h3>
+              <div class="faq-content">
+                <p>Yes, we provide safe and secure boarding facilities for both boys and girls, with accommodations monitored by our staff to ensure a comfortable and supportive environment.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+  
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+              <i class="faq-icon bi bi-question-circle"></i>
+              <h3>What extracurricular activities are available?</h3>
+              <div class="faq-content">
+                <p>Students can participate in various activities, including sports like football and basketball, academic clubs, and cultural events. These activities help foster teamwork and personal development.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+  
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+              <i class="faq-icon bi bi-question-circle"></i>
+              <h3>How can parents contact the school?</h3>
+              <div class="faq-content">
+                <p>Parents are encouraged to contact the school administration directly via our main phone line or email. We also hold regular parent-teacher meetings to ensure open communication.</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+  
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </section><!-- /Faq 2 Section -->
+{% endblock content %}

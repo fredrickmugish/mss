@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ <!-- Page Title -->
+ <section class="page-title py-5">
+    <div class="container" style="padding-top: 60px;">
+      <h1 class="text-center">Our News</h1>
+      <p class="text-center">Stay updated with the latest news, events, and highlights from Mnyanjani Secondary School.</p>
+    </div>
+  </section>
+
+  <!-- News Section -->
+  <section id="news" class="news-section section">
+    <div class="container" data-aos="fade-up">
+      <div class="row gy-4">
+        <!-- New News Announcement -->
+        <div class="col-12 text-center mb-4">
+            <img src="{% static 'img/Newnew1.gif' %}" alt="New Announcement" class="highlight-gif">New Announcements</h2>
+        </div>
+
+        <!-- News Article 1 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card news-item border-0 shadow-sm">
+            <img src="{% static 'img/Mahafali-Ya-kidato-cha-4-chalinze-sec-2024-1-2048x1365.jpg' %}" alt="News Image" class="card-img-top img-fluid">
+            <div class="card-body">
+              <h5 class="card-title">Annual Science Fair 2024</h5>
+              <p class="text-muted small">October 12, 2024</p>
+              <p class="card-text">Our annual science fair was a grand success with over 50 projects from students showcasing their innovation and creativity...</p>
+              <a href="{% url 'news' %}" class="btn btn-custom">Read more</a>
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- News Article 2 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card news-item border-0 shadow-sm">
+            <img src="{% static 'img/pic2.jpg' %}" alt="Library Update" class="card-img-top img-fluid">
+            <div class="card-body">
+              <h5 class="card-title">New Facilities Added to the Library</h5>
+              <p class="text-muted small">September 28, 2024</p>
+              <p class="card-text">Our school library has been upgraded with new books, digital resources, and a comfortable reading space for all students...</p>
+              <a href="{% url 'news' %}" class="btn btn-custom">Read more</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- News Article 3 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card news-item border-0 shadow-sm">
+            <img src="{% static 'img/walm.jpg' %}" alt="Sports Day" class="card-img-top img-fluid">
+            <div class="card-body">
+              <h5 class="card-title">Upcoming Sports Day</h5>
+              <p class="text-muted small">November 15, 2024</p>
+              <p class="card-text">Get ready for our annual Sports Day! Join us for a day filled with fun, games, and sportsmanship. Students, prepare your teams!</p>
+              <a href="{% url 'news' %}" class="btn btn-custom">Read more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock content %}

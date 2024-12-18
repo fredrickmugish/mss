@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ <!-- Marquee Section -->
+ <div style="background-color: #09414d; color: white; padding: 10px;">
+    <marquee behavior="scroll" direction="left" scrollamount="6" style="font-size: 1.2em;">
+      Welcome to the Mnyanjani Secondary School Gallery! Explore our campus, facilities, and memorable moments.
+    </marquee>
+  </div>
+
+   <!-- Page Title -->
+   <div class="page-title" data-aos="fade">
+      <div class="container">
+        <nav class="breadcrumbs" style="padding-top: 30px;">
+          <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li class="current">Team Leadership Structure</li>
+          </ol>
+        </nav>
+        <h1>School Leadership Structure</h1>
+      </div>
+    </div>
+
+<!-- Management Team Section -->
+<section id="management-team" class="team-section section mt-5">
+  <div class="container" data-aos="fade-up">
+    <h2 class="text-center mb-4">Management Team Leadership Structure</h2>
+    <p class="text-center">Meet our dedicated leadership team at Mnyanjani Secondary School.</p>
+
+    <!-- Tree Structure -->
+    <div class="tree">
+      <ul>
+        <li>
+          <div class="member-box">
+            <img src="{% static 'img/mzee.jpg' %}" alt="Headmaster" class="img-fluid">
+            <h4>Headmaster</h4>
+            <p>Mr. Prosper Kabanza</p>
+          </div>
+          <ul>
+            <li>
+              <div class="member-box">
+                <img src="{% static 'img/JASMINI.jpg' %}" alt="Deputy Academic" class="img-fluid">
+                <h4>Deputy Head (Academics)</h4>
+                <p>Ms. Jasmine Ayubu</p>
+              </div>
+            </li>
+            <li>
+              <div class="member-box">
+                <img src="{% static 'img/omari_ally_.jpg' %}" alt="Deputy Discipline" class="img-fluid">
+                <h4>Deputy Head (Discipline)</h4>
+                <p>Mr. Omari Ally</p>
+              </div>
+              <ul>
+                <li>
+                  <div class="member-box">
+                    <img src="{% static 'img/JASMINI.jpg' %}" alt="Discipline Master" class="img-fluid">
+                    <h4>Discipline Master</h4>
+                    <p>Ms. jasmine tajiri</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="member-box">
+                    <img src="{% static 'img/OMARY.jpg' %}" alt="Guidance Counselor" class="img-fluid">
+                    <h4>Guidance Counselor</h4>
+                    <p>Mr. Ohmz de mr</p>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

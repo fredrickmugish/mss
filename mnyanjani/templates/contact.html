@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<main id="main">
+    <!-- Contact Section -->
+    <section id="contact" class="contact mt-5 pt-5">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact Us</h2>
+          <p>We'd love to hear from you. Please reach out with any questions or inquiries.</p>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="row contact-info">
+          <div class="col-lg-4 col-md-6">
+            <div class="contact-address">
+              <i class="bi bi-geo-alt"></i>
+              <h3>Our Address</h3>
+              <p>Mnyanjani, Tanga Region, Tanzania<br>12.1 Km from Kange Tanga Bus Terminal</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="contact-phone">
+              <i class="bi bi-phone"></i>
+              <h3>Phone Number</h3>
+              <p><a href="tel:+255715123456">+255 658 900 066</a></p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="contact-email">
+              <i class="bi bi-envelope"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:info@mnyanjani.ac.tz">info@mnyanjani.ac.tz</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+<div class="row mt-5">
+  <div class="col-lg-6">
+    <!-- Display Flash Messages -->
+    {% if messages %}
+      <div>
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} mt-3" role="alert">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <!-- Contact Form -->
+    <form action="{% url 'contact' %}" method="post" role="form" class="php-email-form" id="contactForm">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+        </div>
+        <div class="col-md-6 form-group">
+          <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+        </div>
+      </div>
+      <!-- <div class="form-group">
+        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+      </div> -->
+      <div class="form-group">
+        <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+      </div>
+      <div class="text-center">
+        <button type="submit" id="sendButton">Send Message</button>
+      </div>
+      <div id="loadingMessage" class="text-center mt-3" style="display: none;">
+        <p>Sending your message...</p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Optional: Add custom script to handle loading -->
+<script>
+  const form = document.getElementById('contactForm');
+  const loadingMessage = document.getElementById('loadingMessage');
+  const sendButton = document.getElementById('sendButton');
+
+  form.addEventListener('submit', function() {
+    // Show loading message
+    loadingMessage.style.display = 'block';
+    // Disable submit button to prevent multiple submissions
+    sendButton.disabled = true;
+  });
+</script>
+
+          <!-- Map Embed -->
+          <div class="col-lg-6">
+            <iframe src="https://www.google.com/maps/d/embed?mid=11wQ8dBMr5c7KvyQ8zGSqTdMCmWT31hc&ehbc=2E312F&noprof=1"
+              width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock content %}

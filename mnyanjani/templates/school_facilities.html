@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Page Title -->
+<div class="page-title" data-aos="fade">
+    <div class="container">
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="{% url 'news' %}" style="padding-top: 90px;">Home</a></li>
+          <li class="current"  style="padding-top: 80px;">Facilities</li>
+        </ol>
+      </nav>
+      <h1  >School Facilities</h1>
+    </div>
+  </div>
+
+  <!-- Marquee Section for Mnyanjani Secondary School Facilities -->
+<div style="background-color: #09414d; color: white; padding: 15px; text-align: center;">
+  <marquee behavior="scroll" direction="left" scrollamount="6" style="font-size: 0.9em; font-weight: bold;" onmouseover="this.stop();" onmouseout="this.start();">
+      Explore the top-notch facilities at Mnyanjani Secondary School! Enjoy our science labs, library, computer labs, playgrounds, and a supportive environment for learning and growth.
+  </marquee>
+</div>
+
+
+    
+    <!-- Facilities Section -->
+    {% for fac in  all_facilities%} 
+  <section id="facilities-section" class="facilities-section section">
+    <div class="container" data-aos="fade-up">
+      <h2 class="text-center mb-4">Facilities at Mnyanjani Secondary School</h2>
+
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="facility-card" data-aos="zoom-in">
+            <img src="{{fac.image.url}}" alt="Science Laboratory" class="img-fluid">
+            <h3>{{fac.name}}</h3>
+            <p>{{fac.description}}</p>
+          </div>
+        </div>
+        {%endfor%}
+
+        <!-- Our fully-equipped science labs offer hands-on experience in Physics, Chemistry, and Biology to enhance practical learning. -->
+        <!-- <div class="col-lg-4 col-md-6">
+          <div class="facility-card" data-aos="zoom-in">
+            <img src="{% static 'img/pic5.jpg' %}" alt="Library" class="img-fluid">
+            <h3>Library</h3>
+            <p>A rich collection of books and digital resources provides a quiet environment for study and research.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="facility-card" data-aos="zoom-in">
+            <img src="{% static 'img/n.jpg' %}" alt="Computer Laboratory" class="img-fluid">
+            <h3>Computer Laboratory</h3>
+            <p>Our computer lab is equipped with modern computers and high-speed internet to support digital learning.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="facility-card" data-aos="zoom-in">
+            <img src="{% static 'img/pic2.jpg' %}" alt="Playground" class="img-fluid">
+            <h3>Playground</h3>
+            <p>Our spacious playground offers facilities for football, volleyball, and other recreational activities.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="facility-card" data-aos="zoom-in">
+            <img src="{% static 'img/n.jpg' %}" alt="Dormitory" class="img-fluid">
+            <h3>Dormitories</h3>
+            <p>Comfortable and secure dormitories provide accommodation for our students.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="facility-card" data-aos="zoom-in">
+            <img src="{% static 'img/pic6.jpg' %}" alt="Cafeteria" class="img-fluid">
+            <h3>Cafeteria</h3>
+            <p>Our cafeteria offers nutritious meals to support the health and well-being of students and staff.</p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+
+{% endblock content %}

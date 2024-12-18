@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ <!-- Page Title -->
+ <div class="page-title" data-aos="fade">
+    <div class="container">
+      <nav class="breadcrumbs" style="padding-top: 40px;">
+        <ol>
+          <li><a href="{% url 'home' %}" style="padding-top: 40px";>Home</a></li>
+          <li class="current" style="padding-top: 40px";>Academic Results</li>
+        </ol>
+      </nav>
+      <h1>Academic Results</h1>
+    </div>
+  </div>
+
+  
+  <style>
+      .table-container {
+          padding: 20px;
+          background-color: #f8f9fa;
+          margin: 0 auto;
+      }
+      .table th, .table td {
+          font-size: 16px;
+          color: green;
+          text-align: center;
+      }
+      .table thead {
+          background-color: #203864;
+          color: white;
+      }
+      .table-title {
+          font-size: 24px;
+          font-weight: bold;
+          color: red;
+          text-align: center;
+          margin: 20px 0;
+      }
+      /* Make the table scrollable on mobile devices */
+      @media (max-width: 767px) {
+          .table-responsive {
+              overflow-x: auto;
+              -webkit-overflow-scrolling: touch;
+          }
+      }
+  </style>
+</head>
+<body>
+  <div class="container-fluid table-container">
+      <div class="table-title">MNYANJANI SECONDARY SCHOOL STUDENT RESULTS</div>
+      <div class="table-responsive">
+          <table class="table table-bordered">
+              <thead>
+                  <tr>
+                      <th>YEAR</th>
+                      <th>DATE</th>
+                      <th>EXAMINATION TYPES</th>
+                      <th>FORM (CLASS)</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td rowspan="10"><strong>2024</strong></td>
+                      <td>30/08/2024</td>
+                      <td>FORM ONE TERMINAL EXAMINATION AUGUST</td>
+                      <td><a href="Results_June_2024.html" target="_blank">CLICK HERE FOR FORM ONE</a></td>
+                  </tr>
+                  <tr>
+                      <td>30/09/2024</td>
+                      <td>FORM FOUR MID-TERM TEST SEPTEMBER</td>
+                      <td><a href="form 11A Terminal examination results June 2024.html" target="_blank">CLICK HERE FOR FORM FOUR</a></td>
+                  </tr>
+                  <tr>
+                      <td>25/10/2024</td>
+                      <td>FORM TWO TERMINAL EXAMINATION AUGUST</td>
+                      <td><a href="form 11A Terminal examination results June 2024.html" target="_blank">CLICK HERE FOR FORM TWO</a></td>
+                  </tr>
+                  <tr>
+                      <td>30/08/2024</td>
+                      <td>FORM THREE TERMINAL EXAMINATION AUGUST</td>
+                      <td><a href="form 11A Terminal examination results June 2024.html" target="_blank">CLICK HERE FOR FORM THREE</a></td>
+                  </tr>
+                  <tr>
+                      <td>30/08/2024</td>
+                      <td>FORM THREE TERMINAL EXAMINATION AUGUST</td>
+                      <td><a href="form 11A Terminal examination results June 2024.html" target="_blank">CLICK HERE FOR FORM THREE</a></td>
+                  </tr>
+                  <tr>
+                      <td>30/08/2024</td>
+                      <td>FORM THREE TERMINAL EXAMINATION AUGUST</td>
+                      <td><a href="form 11A Terminal examination results June 2024.html" target="_blank">CLICK HERE FOR FORM THREE</a></td>
+                  </tr>
+                  <tr>
+                      <td>10/08/2024</td>
+                      <td>FORM ONE TERMINAL EXAMINATION AUGUST</td>
+                      <td><a href="form 11A Terminal examination results June 2024.html" target="_blank">CLICK HERE FOR FORM ONE</a></td>
+                  </tr>
+                  <tr>
+                      <td>20/08/2024</td>
+                      <td>FORM THREE TERMINAL EXAMINATION AUGUST</td>
+                      <td><a href="form 11A Terminal examination results June 2024.html" target="_blank">CLICK HERE FOR FORM THREE</a></td>
+                  </tr>
+                  <tr>
+                      <td>30/08/2024</td>
+                      <td>FORM THREE TERMINAL EXAMINATION AUGUST</td>
+                      <td><a href="form 11A Terminal examination results June 2024.html" target="_blank">CLICK HERE FOR FORM THREE</a></td>
+                  </tr>
+                  <tr>
+                      <td>30/07/2024</td>
+                      <td>FORM TWO TERMINAL EXAMINATION AUGUST</td>
+                      <td><a href="form 11A Terminal examination results June 2024.html" target="_blank">CLICK HERE FOR FORM TWO</a></td>
+                  </tr>
+
+                  
+                  <!-- Add additional rows here as needed -->
+              </tbody>
+          </table>
+      </div>
+  </div>
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ <!-- Page Title -->
+ <div class="page-title mt-5 pt-5" data-aos="fade">
+    <div class="container">
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li>Joining Instructions</li>
+        </ol>
+      </nav>
+      <h1>Joining Instructions</h1>
+    </div>
+  </div>
+
+  <!-- Joining Instructions Section -->
+  <section id="joining-instructions" class="container my-5">
+    <div class="row">
+      <div class="col-md-12" data-aos="fade-up">
+        <h2 class="text-center mb-4">How to Join Mnyanjani Secondary School</h2>
+        <p class="text-center">Below are the guidelines and documents required for new students joining Mnyanjani Secondary School. Please review the instructions carefully and download the necessary documents.</p>
+        
+        <!-- Instructions List -->
+        <ul class="list-group list-group-flush mb-4">
+          <li class="list-group-item">1. Review the admission requirements for your class.</li>
+          <li class="list-group-item">2. Complete the admission forms provided.</li>
+          <li class="list-group-item">3. Gather all required documents (birth certificate, previous school reports, etc.).</li>
+          <li class="list-group-item">4. Submit all forms and documents to the school office by the due date.</li>
+        </ul>
+
+       <!-- Document Download Section -->
+{% for joining in instructions %}
+<div class="text-center my-3">
+    <a href="{{ joining.file.url }}" class="btn btn-primary btn-lg" download style="background-color: #09414d; border-color: #09414d;">
+        <i class="bi bi-download"></i>
+        {% if joining.year == current_year %}
+        <img src="{% static 'img/Newnew1.gif' %}" alt="New {{ joining.year }} Joining Instructions" style="width: 50px; height: auto;">
+        {% endif %}
+        Download {{ joining.year }} Joining Instructions PDF
+    </a>
+</div>
+{% endfor %}
+
+
+  </section>
+ 
+  
+{% endblock content %}

@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+ <!-- Page Title -->
+ <div class="page-title" data-aos="fade">
+    <div class="container">
+      <nav class="breadcrumbs" style="padding-top: 50px;">
+        <ol>
+          <li><a href="{% url 'home' %}" style="padding-top: 40px;">Home</a></li>
+          <li class="current" style="padding-top: 40px;">Gallery</li>
+        </ol>
+      </nav>
+      <h1>School Gallery</h1>
+    </div>
+  </div>
+
+  <!-- Marquee Section -->
+<div style="background-color: #09414d; color: white; padding: 10px;">
+    <marquee behavior="scroll" direction="left" scrollamount="6" style="font-size: 0.9em; font-weight: bold;" class="marquee" onmouseover="this.stop();" onmouseout="this.start();">
+      Welcome to the Mnyanjani Secondary School Gallery! Explore our campus, facilities, and memorable moments.
+    </marquee>
+  </div>
+
+
+<!-- Gallery Section -->
+<section id="gallery" class="gallery-section section">
+<div class="container" data-aos="fade-up">
+  <h2 class="text-center mb-4">School Gallery</h2>
+  <p class="text-center">Explore moments and highlights from Mnyanjani Secondary School, including events, facilities, and student activities.</p>
+
+  <!-- Gallery Grid -->
+  <div class="row gy-4">
+    <!-- Image 1 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="gallery-item" data-aos="zoom-in">
+        <a href="{% static 'img/n.jpg' %}" class="glightbox" data-gallery="gallery">
+          <img src="{% static 'img/n.jpg' %}" alt="School Event" class="img-fluid">
+        </a>
+        <h4 class="text-center">School Administrative Block</h4>
+      </div>
+    </div>
+
+    <!-- Image 2 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="gallery-item" data-aos="zoom-in">
+        <a href="{% static 'img/lab.jpg' %}" class="glightbox" data-gallery="gallery">
+          <img src="{% static 'img/lab.jpg' %}" alt="School Facility" class="img-fluid">
+        </a>
+        <h4 class="text-center">Science Laboratory</h4>
+      </div>
+    </div>
+
+    <!-- Image 3 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="gallery-item" data-aos="zoom-in">
+        <a href="{% static 'img/pic4.jpg' %}" class="glightbox" data-gallery="gallery">
+          <img src="{% static 'img/pic4.jpg' %}" alt="Sports Activity" class="img-fluid">
+        </a>
+        <!-- <h4 class="text-center">Inter-school Sports</h4> -->
+        <h4 class="text-center">Teacher in Class</h4>
+      </div>
+    </div>
+
+    <!-- Additional Images (4-6) -->
+    <div class="col-lg-4 col-md-6">
+      <div class="gallery-item" data-aos="zoom-in">
+        <a href="{% static 'img/Mahafali-Ya-kidato-cha-4-chalinze-sec-2024-1-2048x1365.jpg' %}" class="glightbox" data-gallery="gallery">
+          <img src="{% static 'img/Mahafali-Ya-kidato-cha-4-chalinze-sec-2024-1-2048x1365.jpg' %}" alt="School Event" class="img-fluid">
+        </a>
+        <h4 class="text-center">Graduation Day</h4>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 col-md-6">
+      <div class="gallery-item" data-aos="zoom-in">
+        <a href="{% static 'img/pic2.jpg' %}" class="glightbox" data-gallery="gallery">
+          <img src="{% static 'img/pic2.jpg' %}" alt="Library" class="img-fluid">
+        </a>
+        <!-- <h4 class="text-center">School Library</h4> -->
+        <h4 class="text-center">School Environment</h4>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 col-md-6">
+      <div class="gallery-item" data-aos="zoom-in">
+        <a href="{% static 'img/pic6 - Copy.jpg' %}" class="glightbox" data-gallery="gallery">
+          <img src="{% static 'img/pic6 - Copy.jpg' %}" alt="Computer Lab" class="img-fluid">
+        </a>
+        <h4 class="text-center">School Classes</h4>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+{% endblock content %}

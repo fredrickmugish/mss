@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<body text="#000080" link="#0000ff" vlink="#800080" bgcolor="LIGHTBLUE">
+    <h2>OFFICIAL RESULTS OF SCHOOL EXAMINATIONS</h2>
+    <h1>FORM FOUR 2024 EXAMINATION RESULTS</h1>
+    <h3>S4117 MNYANJANI SECONDARY SCHOOL</h3>
+    <br>
+    <font color="#800080">DIVISIONAL PERFORMANCE OVERVIEW</font>
+    <br><br>
+
+    {% if no_results %}
+        <p>No results published yet.</p>
+    {% else %}
+        <table border="1" width="40%" bgcolor="LIGHTYELLOW">
+            <tr>
+                <td>SEX</td>
+                <td>I</td>
+                <td>II</td>
+                <td>III</td>
+                <td>IV</td>
+                <td>0</td>
+            </tr>
+            {% for row in overview %}
+            <tr>
+                <td>{{ row.sex }}</td>
+                <td>{{ row.division_i }}</td>
+                <td>{{ row.division_ii }}</td>
+                <td>{{ row.division_iii }}</td>
+                <td>{{ row.division_iv }}</td>
+                <td>{{ row.division_0 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+        <table border="1" width="70%" bgcolor="LIGHTYELLOW">
+            <tr>
+                <td>NAME OF STUDENT</td>
+                <td>SEX</td>
+                <td>DIV</td>
+                <td>POINTS</td>
+                <td>POSITION</td>
+                <td>DETAILED SUBJECTS</td>
+            </tr>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.sex }}</td>
+                <td>{{ student.division }}</td>
+                <td>{{ student.points }}</td>
+                <td>{{ student.position }}</td>
+                <td>{{ student.detailed_subjects }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+{% endblock content %}

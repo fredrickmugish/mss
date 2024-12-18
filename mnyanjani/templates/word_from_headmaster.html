@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+ <!-- Page Title -->
+ <div class="page-title" data-aos="fade">
+    <div class="container">
+      <nav class="breadcrumbs" style="padding-top: 80px;">
+        <ol>
+          <li><a href="{% url 'home' %}" style="padding-top: 40px;">Home</a></li>
+          <li class="current" >Word from the Headmaster</li>
+        </ol>
+      </nav>
+      <h1>Word from the Headmaster</h1>
+    </div>
+  </div>
+
+<!-- Headmaster's Message Section -->
+<section id="headmaster-message" class="section py-5" style="background-color: #ffffff;">
+<div class="container">
+  <div class="row align-items-center gy-4">
+    <div class="col-lg-4 text-center" data-aos="fade-up" data-aos-delay="100">
+      <!-- Updated Image Frame with Rectangular Border -->
+      <div class="position-relative mx-auto" style="width: 200px; height: 200px; border: 2px solid #203864; border-radius: 8px; overflow: hidden;">
+        <img src="{% static 'img/mzee.jpg' %}" alt="Headmaster's Image" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
+      </div>
+      <h4 class="text-dark mt-3 mb-1">Mr. Mohamed Abidina</h4>
+      <p class="text-muted mb-0">Headmaster, Mnyanjani Secondary School</p>
+    </div>
+
+    <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+      <div class="border-start border-3 ps-4" style="border-color: #203864;">
+        <h3 class="text-dark mb-3">Welcome to Mnyanjani Secondary School</h3>
+        <p class="mb-4" style="font-size: 1.1rem; line-height: 1.8;">
+          It is my pleasure to welcome you to Mnyanjani Secondary School. Our school is a place of inspiration and growth, where we empower each student to achieve their highest potential. We believe in a nurturing environment that supports both academic excellence and personal development.
+        </p>
+        <p class="mb-4" style="font-size: 1.1rem; line-height: 1.8;">
+          At Mnyanjani, we offer a curriculum that fosters critical thinking, creativity, and ethical behavior. Our team of dedicated educators is committed to guiding students on their educational journey and preparing them to contribute meaningfully to society.
+        </p>
+        <ul class="list-unstyled">
+          <li class="d-flex align-items-center mb-2">
+            <i class="bi bi-check-circle-fill text-secondary me-2"></i>
+            <span>Commitment to academic excellence and integrity.</span>
+          </li>
+          <li class="d-flex align-items-center mb-2">
+            <i class="bi bi-check-circle-fill text-secondary me-2"></i>
+            <span>A supportive community and positive learning atmosphere.</span>
+          </li>
+          <li class="d-flex align-items-center">
+            <i class="bi bi-check-circle-fill text-secondary me-2"></i>
+            <span>Programs that develop students’ skills and potential.</span>
+          </li>
+        </ul>
+        <p class="mt-4" style="font-size: 1.1rem; line-height: 1.8;">
+          We invite you to explore our school, learn about our values, and join us in our mission to create a future full of promise. Together, we can achieve great things.
+        </p>
+        <p class="text-end fw-bold mt-5 mb-0" style="color: #203864;">
+          Warm regards,<br>
+          <strong>Mr. Mohamed Abidina</strong><br>
+          Headmaster, Mnyanjani Secondary School
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+{% endblock content %}
