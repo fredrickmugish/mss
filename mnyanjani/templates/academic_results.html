@@ -5,93 +5,115 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        body {
+            background-color: LIGHTBLUE;
+            color: #000080;
+            font-family: 'Arial', sans-serif;
+        }
+        h2, h3 {
+            color: #800080;
+            text-align: left;
+            margin-left: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 70%; 
+            margin-left: 20px; 
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            font-family: 'Courier', sans-serif;
+            font-size: 14px;
+        }
+        th {
+            background-color: LIGHTYELLOW;
+        }
+        td {
+            background-color: LIGHTYELLOW;
+        }
+        .table-header {
+            background-color: LIGHTYELLOW;
+        }
+    </style>
 </head>
-<body text="#000080" link="#0000ff" vlink="#800080" bgcolor="LIGHTBLUE">
-    <font color="#800080">
-      <h2>OFFICIAL SCHOOL EXAMINATIONS RESULTS </h2>
-        <h1>
-          <h1><p align="LEFT">FORM FOUR 2024 EXAMINATION RESULTS</p></h1>
-        </h1>
-        <h3>
-            <p align="LEFT">S4117 MNYANJANI SECONDARY SCHOOL</p>
-        </h3>
-        <br>
-        DIVISIONAL PERFORMANCE OVERVIEW
-    </font>
+<body>
+    <h2>OFFICIAL SCHOOL EXAMINATIONS RESULTS</h2>
+    <h3>FORM FOUR 2024 EXAMINATION RESULTS</h3>
+    <h3>S4117 MNYANJANI SECONDARY SCHOOL</h3>
+    <form method="get" action="">
+        <label for="class-select"><h3> Select the Class:</h3></label>
+        <select name="class" id="class-select" onchange="this.form.submit()">
+            <option value="Form 1" {% if selected_class == 'Form 1' %}selected{% endif %}>Form 1</option>
+            <option value="Form 2" {% if selected_class == 'Form 2' %}selected{% endif %}>Form 2</option>
+            <option value="Form 3" {% if selected_class == 'Form 3' %}selected{% endif %}>Form 3</option>
+            <option value="Form 4" {% if selected_class == 'Form 4' %}selected{% endif %}>Form 4</option>
+        </select>
+    </form>
+    
+    <h3>Results for {{ selected_class }}</h3>
+    <h3>DIVISIONAL PERFORMANCE OVERVIEW</h3>
+    <table border="1">
+        <thead class="table-header">
+            <tr>
+                <th>SEX</th>
+                <th>I</th>
+                <th>II</th>
+                <th>III</th>
+                <th>IV</th>
+                <th>0</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Male</td>
+                <td>{{ overview.male.division_i }}</td>
+                <td>{{ overview.male.division_ii }}</td>
+                <td>{{ overview.male.division_iii }}</td>
+                <td>{{ overview.male.division_iv }}</td>
+                <td>{{ overview.male.division_0 }}</td>
+            </tr>
+            <tr>
+                <td>Female</td>
+                <td>{{ overview.female.division_i }}</td>
+                <td>{{ overview.female.division_ii }}</td>
+                <td>{{ overview.female.division_iii }}</td>
+                <td>{{ overview.female.division_iv }}</td>
+                <td>{{ overview.female.division_0 }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+
     <br><br>
-    <table border="" width="40%" align="LEFT" bgcolor="LIGHTYELLOW">
+
+    <table border="1" cellspacing="2">
+        <thead class="table-header">
+            <tr>
+                <th>NAME OF STUDENT</th>
+                <th>SEX</th>
+                <th>DIV</th>
+                <th>POINTS</th>
+                <th>POSITION</th>
+                <th>DETAILED SUBJECTS</th>
+            </tr>
+        </thead>
         <tbody>
+            {% for student in students %}
             <tr>
-                <td width="3%" align="CENTER"><b><font face="Courier" size="2">SEX</font></b></td>
-                <td width="5%" align="CENTER"><b><font face="Courier" size="2">I</font></b></td>
-                <td width="5%" align="CENTER"><b><font face="Courier" size="2">II</font></b></td>
-                <td width="5%" align="CENTER"><b><font face="Courier" size="2">III</font></b></td>
-                <td width="5%" align="CENTER"><b><font face="Courier" size="2">IV</font></b></td>
-                <td width="5%" align="CENTER"><b><font face="Courier" size="2">0</font></b></td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.sex }}</td>
+                <td>{{ student.division }}</td>
+                <td>{{ student.points }}</td>
+                <td>{{ student.position }}</td>
+                <td>{{ student.detailed_subjects }}</td>
             </tr>
-            <tr>
-                <td align="CENTER"><font face="Courier" size="2">F</font></td>
-                <td align="CENTER"><font face="Courier" size="2">0</font></td>
-                <td align="CENTER"><font face="Courier" size="2">0</font></td>
-                <td align="CENTER"><font face="Courier" size="2">1</font></td>
-                <td align="CENTER"><font face="Courier" size="2">0</font></td>
-                <td align="CENTER"><font face="Courier" size="2">0</font></td>
-            </tr>
-            <tr>
-                <td align="CENTER"><font face="Courier" size="2">M</font></td>
-                <td align="CENTER"><font face="Courier" size="2">0</font></td>
-                <td align="CENTER"><font face="Courier" size="2">0</font></td>
-                <td align="CENTER"><font face="Courier" size="2">0</font></td>
-                <td align="CENTER"><font face="Courier" size="2">1</font></td>
-                <td align="CENTER"><font face="Courier" size="2">1</font></td>
-            </tr>
-            <tr>
-                <td align="CENTER"><font face="Courier" size="2">T</font></td>
-                <td align="CENTER"><font face="Courier" size="2">0</font></td>
-                <td align="CENTER"><font face="Courier" size="2">0</font></td>
-                <td align="CENTER"><font face="Courier" size="2">1</font></td>
-                <td align="CENTER"><font face="Courier" size="2">1</font></td>
-                <td align="CENTER"><font face="Courier" size="2">1</font></td>
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
-    <br><br><br><br><br><br>
-    <table border="" cellspacing="2" width="70%" bgcolor="LIGHTYELLOW">
-        <tbody>
-            <tr>
-                <td width="20%" align="CENTER"><b><font face="Courier" size="2">NAME OF STUDENT</font></b></td>
-                <td width="4%" align="CENTER"><b><font face="Courier" size="2">SEX</font></b></td>
-                <td width="4%" align="CENTER"><b><font face="Courier" size="2">DIV</font></b></td>
-                <td width="6%" align="CENTER"><b><font face="Courier" size="2">POINTS</font></b></td>
-                <td width="6%" align="CENTER"><b><font face="Courier" size="2">POSITION</font></b></td>
-                <td width="30%" align="LEFT"><b><font face="Courier" size="2">DETAILED SUBJECTS</font></b></td>
-            </tr>
-            <tr>
-                <td align="CENTER"><font face="Arial" size="1">OMARI HASSANI ALLY</font></td>
-                <td align="CENTER"><font face="Arial" size="1">M</font></td>
-                <td align="CENTER"><font face="Arial" size="1">IV</font></td>
-                <td align="CENTER"><font face="Arial" size="1">33</font></td>
-                <td align="CENTER"><font face="Arial" size="1">1</font></td>
-                <td align="LEFT"><font face="Arial" size="1">CIV - 'F'   HIST - 'F'   GEO - 'F'   KISW - 'C'   ENGL - 'F'   BIO - 'F'   B/MATH - 'F'</font></td>
-            </tr>
-            <tr>
-                <td align="CENTER"><font face="Arial" size="1">MOHAMEDI KOMBO MALIYABWANA</font></td>
-                <td align="CENTER"><font face="Arial" size="1">M</font></td>
-                <td align="CENTER"><font face="Arial" size="1">0</font></td>
-                <td align="CENTER"><font face="Arial" size="1">34</font></td>
-                <td align="CENTER"><font face="Arial" size="1">2</font></td>
-                <td align="LEFT"><font face="Arial" size="1">CIV - 'F'   HIST - 'F'   GEO - 'F'   KISW - 'D'   ENGL - 'F'   BIO - 'F'   B/MATH - 'F'</font></td>
-            </tr>
-            <tr>
-                <td align="CENTER"><font face="Arial" size="1">AMINA ZUBERI MTUNGUVU</font></td>
-                <td align="CENTER"><font face="Arial" size="1">F</font></td>
-                <td align="CENTER"><font face="Arial" size="1">III</font></td>
-                <td align="CENTER"><font face="Arial" size="1">28</font></td>
-                <td align="CENTER"><font face="Arial" size="1">3</font></td>
-                <td align="LEFT"><font face="Arial" size="1">CIV - 'D'   HIST - 'C'   GEO - 'C'   KISW - 'B'   ENGL - 'D'   BIO - 'E'   B/MATH - 'D'</font></td>
-            </tr>
-        </tbody>
-    </table>
+    <br>
 </body>
 </html>
+
 {% endblock content %}

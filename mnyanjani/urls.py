@@ -18,7 +18,7 @@ urlpatterns = [
     path('news/<int:news_id>/', views.news_detail, name='news_detail'),  # Added detail view
     path('contact/', views.contact, name='contact'),
     path('academic_results/', views.academic_results, name='academic_results'), 
-    path('display_results/', views.display_results, name='display_results'),
+ 
   
     
 ]

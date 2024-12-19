@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.utils.timezone import now
 from django.contrib import messages
 from .models import (
-    StudentResult, PerformanceOverview, Facility, Alumni, Result, GalleryItem, 
+    ExamResult, SchoolPerformanceOverview, Facility, Alumni, GalleryItem, 
     News, JoiningInstruction, Headmaster, ContactMessage
 )
 
@@ -72,58 +72,35 @@ def contact(request):
             messages.error(request, "An error occurred while sending your message. Please try again.")
     return render(request, 'contact.html')
 
+    
 def academic_results(request):
-    if request.method == "POST" and 'file' in request.FILES:
-        file = request.FILES['file']
-        decoded_file = file.read().decode('utf-8').splitlines()
-        reader = csv.reader(decoded_file)
+    # Get the selected class level from query parameters (default to 'Form 4')
+    selected_class = request.GET.get('class', 'Form 4')
 
-        # Clear existing data
-        StudentResult.objects.all().delete()
-        PerformanceOverview.objects.all().delete()
+    # Fetch students' results for the selected class
+    students = ExamResult.objects.filter(class_level=selected_class)
 
-        overview = {
-            "F": {"I": 0, "II": 0, "III": 0, "IV": 0, "0": 0},
-            "M": {"I": 0, "II": 0, "III": 0, "IV": 0, "0": 0},
+    # Calculate divisional performance overview for male and female students
+    overview = {
+        'male': {
+            'division_i': students.filter(sex='M', division='I').count(),
+            'division_ii': students.filter(sex='M', division='II').count(),
+            'division_iii': students.filter(sex='M', division='III').count(),
+            'division_iv': students.filter(sex='M', division='IV').count(),
+            'division_0': students.filter(sex='M', division='0').count(),
+        },
+        'female': {
+            'division_i': students.filter(sex='F', division='I').count(),
+            'division_ii': students.filter(sex='F', division='II').count(),
+            'division_iii': students.filter(sex='F', division='III').count(),
+            'division_iv': students.filter(sex='F', division='IV').count(),
+            'division_0': students.filter(sex='F', division='0').count(),
         }
+    }
 
-        for row in reader:
-            name, sex, division, points, position, detailed_subjects = row
-            StudentResult.objects.create(
-                name=name,
-                sex=sex,
-                division=division,
-                points=int(points),
-                position=int(position),
-                detailed_subjects=detailed_subjects,
-            )
-            if division in overview[sex]:
-                overview[sex][division] += 1
-
-        for sex, divisions in overview.items():
-            PerformanceOverview.objects.create(
-                sex=sex,
-                division_i=divisions["I"],
-                division_ii=divisions["II"],
-                division_iii=divisions["III"],
-                division_iv=divisions["IV"],
-                division_0=divisions["0"],
-            )
-
-        messages.success(request, "Results uploaded successfully.")
-        return render(request, "academic_results.html")
-
-    # Handle GET requests
-    return render(request, "academic_results.html")
-
-def display_results(request):
-    students = StudentResult.objects.all()
-    overview = PerformanceOverview.objects.all()
+    # Render the results in the template
     return render(request, "academic_results.html", {
         "students": students,
         "overview": overview,
-        "no_results": not students.exists(),
+        "selected_class": selected_class,
     })
-
-
-

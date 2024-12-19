@@ -33,19 +33,6 @@ class Alumni(models.Model):
         return self.full_name
 
 
-# Model for Examination Results
-class Result(models.Model):
-    student_name = models.CharField(max_length=150, verbose_name="Student Name")
-    student_id = models.CharField(max_length=50, unique=True, verbose_name="Student ID")
-    subject = models.CharField(max_length=100, verbose_name="Subject")
-    marks = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Marks")
-    term = models.CharField(max_length=50, verbose_name="Term")
-    year = models.IntegerField(verbose_name="Year")
-
-    def __str__(self):
-        return f"{self.student_name} - {self.subject} ({self.year})"
-
-
 # Model for Gallery
 class GalleryItem(models.Model):
     title = models.CharField(max_length=200, verbose_name="Title")
@@ -90,27 +77,61 @@ class Headmaster(models.Model):
         return self.name
 
 
-# Model for Student Results
-class StudentResult(models.Model):
-    name = models.CharField(max_length=100)
-    sex = models.CharField(max_length=1, choices=[('F', 'Female'), ('M', 'Male')], verbose_name="Sex")
-    division = models.CharField(max_length=5, verbose_name="Division")
-    points = models.IntegerField(verbose_name="Points")
-    position = models.IntegerField(verbose_name="Position")
+class ExamResult(models.Model):
+    CLASS_LEVEL_CHOICES = [
+        ('Form 1', 'Form 1'),
+        ('Form 2', 'Form 2'),
+        ('Form 3', 'Form 3'),
+        ('Form 4', 'Form 4'),
+    ]
+
+    GENDER_CHOICES = [
+        ('M', 'Male'),
+        ('F', 'Female'),
+    ]
+    DIVISION_CHOICES = [
+        ('I', 'Division I'),
+        ('II', 'Division II'),
+        ('III', 'Division III'),
+        ('IV', 'Division IV'),
+        ('0', 'Division 0'),
+    ]
+
+    name = models.CharField(max_length=100, verbose_name="Student Name")
+    sex = models.CharField(max_length=1, choices=GENDER_CHOICES, verbose_name="Sex")
+    division = models.CharField(max_length=3, choices=DIVISION_CHOICES, verbose_name="Division")
+    points = models.PositiveIntegerField(verbose_name="Points")
+    position = models.PositiveIntegerField(verbose_name="Position")
     detailed_subjects = models.TextField(verbose_name="Detailed Subjects")
+    class_level = models.CharField(max_length=10, choices=CLASS_LEVEL_CHOICES, verbose_name="Class Level",null=True)
+
+   
+    def __str__(self):
+        return f"{self.name} - {self.class_level} - Division {self.division}"
+
+
+    class Meta:
+        verbose_name = "Exam Result"
+        verbose_name_plural = "Exam Results"
+
+
+class SchoolPerformanceOverview(models.Model):
+    GENDER_CHOICES = [
+        ('M', 'Male'),
+        ('F', 'Female'),
+        ('T', 'Total'),
+    ]
+
+    sex = models.CharField(max_length=1, choices=GENDER_CHOICES, verbose_name="Sex")
+    division_i = models.PositiveIntegerField(verbose_name="Division I")
+    division_ii = models.PositiveIntegerField(verbose_name="Division II")
+    division_iii = models.PositiveIntegerField(verbose_name="Division III")
+    division_iv = models.PositiveIntegerField(verbose_name="Division IV")
+    division_0 = models.PositiveIntegerField(verbose_name="Division 0")
 
     def __str__(self):
-        return f"{self.name} - Division {self.division}"
+        return f"{self.get_sex_display()} Performance"
 
-
-# Model for Performance Overview
-class PerformanceOverview(models.Model):
-    sex = models.CharField(max_length=1, choices=[('F', 'Female'), ('M', 'Male'), ('T', 'Total')], verbose_name="Sex")
-    division_i = models.IntegerField(default=0, verbose_name="Division I Count")
-    division_ii = models.IntegerField(default=0, verbose_name="Division II Count")
-    division_iii = models.IntegerField(default=0, verbose_name="Division III Count")
-    division_iv = models.IntegerField(default=0, verbose_name="Division IV Count")
-    division_0 = models.IntegerField(default=0, verbose_name="Division 0 Count")
-
-    def __str__(self):
-        return f"Performance Overview ({self.sex})"
+    class Meta:
+        verbose_name = "School Performance Overview"
+        verbose_name_plural = "School Performance Overviews"
