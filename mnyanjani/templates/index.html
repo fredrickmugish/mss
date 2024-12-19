@@ -1,22 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
 
- 
-    <!-- Hero Section with Carousel and Image Titles -->
 <section id="hero" class="hero section">
-
   <div class="container">
     <div class="row gy-4">
 
-       <!-- Marquee Section for Mnyanjani Secondary School Welcome Note -->
-<div style=" color: white; padding: 15px; text-align: center;">
-  <marquee behavior="scroll" direction="left" scrollamount="6" style="font-size: 1em; font-weight: bold;" onmouseover="this.stop();" onmouseout="this.start();">
-      Welcome to Mnyanjani Secondary School! Discover our vibrant community, campus life, and achievements. We are committed to excellence in education and holistic growth.
-  </marquee>
-</div>
-
-        
+      <!-- Marquee Section for Mnyanjani Secondary School Welcome Note -->
+      <div style="color: white; padding: 15px; text-align: center;">
+        <marquee behavior="scroll" direction="left" scrollamount="6" style="font-size: 1em; font-weight: bold;" onmouseover="this.stop();" onmouseout="this.start();">
+          Welcome to Mnyanjani Secondary School! Discover our vibrant community, campus life, and achievements. We are committed to excellence in education and holistic growth.
+        </marquee>
+      </div>
         <!-- Text Content -->
 <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
     <h1>Welcome to Mnyanjani Secondary School</h1>
@@ -588,4 +584,5 @@
     </div>
   
   </section><!-- /Faq 2 Section -->
+</body>
 {% endblock content %}
